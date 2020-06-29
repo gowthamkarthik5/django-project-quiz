@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if object %}
+        Edit Question "{{ object.title }}"
+    {% else %}
+        Create a new Question
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if object %}
+            Edit Question "{{ object.title }}"
+        {% else %}
+            Create a new Question
+        {% endif %}
+    </h1>
+    <div class="module">
+        <h2>Question info</h2>
+
+        <form action="" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Save Question"></p>
+        </form>
+    </div>
+{% endblock %}
